@@ -46,6 +46,9 @@ jobs:
         os: [ubuntu, windows, macos]
 
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+
       - run: cargo clippy
       - run: cargo doc --no-deps
 
