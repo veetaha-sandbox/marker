@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: ./scripts/download/taplo.sh
+      - run: scripts/download/taplo.sh
       - run: taplo fmt --check
 
   # Check for typos in the repository based on a static dictionary
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: ./scripts/download/typos.sh
+      - run: scripts/download/typos.sh
       - run: typos
 
   # Check for unused dependencies that uses simple regex search,
@@ -93,7 +93,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: ./scripts/download/cargo-machete.sh
+      - run: scripts/download/cargo-machete.sh
       - run: cargo-machete
 
   # Check that the documentation can be built
@@ -101,5 +101,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: ./scripts/download/mdbook.sh
-      - run: mdbook build ./docs/book/
+      - run: scripts/download/mdbook.sh
+      - run: mdbook build docs/book
