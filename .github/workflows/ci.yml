@@ -37,6 +37,15 @@ jobs:
       - uses: actions-rust-lang/setup-rust-toolchain@v1
 
       - run: cargo test --locked
+
+  rust-lint:
+    runs-on: ${{ matrix.os }}-latest
+
+    strategy:
+      matrix:
+        os: [ubuntu, windows, macos]
+
+    steps:
       - run: cargo clippy
       - run: cargo doc --no-deps
 
