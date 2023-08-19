@@ -42,12 +42,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      # We don't need any cache here, so use dtolnay action directly
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo fmt --check
 
-  # This task ensures, required packages can be built with a stable toolchain
-  # the only package requiring nightly should be `marker_rustc_driver` and
-  # optionally `marker_adapter`
+  # This job ensures required packages can be built with a stable toolchain
+  # except for some special ones that require nightly
   rust-check-on-stable:
     runs-on: ${{ matrix.os }}-latest
 
